@@ -14,10 +14,12 @@
   },
   "homepage": "https://github.com/",
   "dependencies": {
+    "axios": "^0.17.1",
     "cors": "^2.8.4",
     "dotenv": "^4.0.0",
     "express": "^4.16.2",
     "mobx": "^3.4.1",
+    "mobx-react": "^4.3.5",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-router-dom": "^4.2.2",
@@ -31,6 +33,6 @@
     "eject": "react-scripts eject"
   },
   "main": "find-rep-api/index.js",
-  "proxy": "http://localhost:8008",
+  "proxy": "http://localhost:8088",
   "keywords": []
 }
