@@ -1,8 +1,8 @@
 
-# React App Boilerplate with Express Server
+# React Exercise Using http://whoismyrepresentative.com/api for Grow.com
 
 
-This is an app boilerplate to bootstrap.
+This is basic React app exercise.
 
 ## Table of Contents
 
