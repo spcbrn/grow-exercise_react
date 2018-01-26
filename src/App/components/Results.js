@@ -70,8 +70,12 @@ const RepDetails = ({ rep }) => {
                       e: rep.office,
                       f: rep.link }
                   : defaultVals;
-  let fields = [];
 
+  //don't render a District field for senators
+  if (rep.name && !rep.district) delete dataObj.c;
+
+  let fields = [];
+  //loop through the data object and generate JSX for each field.
   for (let key in dataObj) {
     key === 'f' && rep.name
       ? fields.push(
