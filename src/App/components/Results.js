@@ -21,7 +21,9 @@ const Results = observer(props => {
     <section className="results_main">
       <div className="results_list results_flex">
         <header className="results_header">
-          <p>List /</p> <p style={{"color": "#4286f4"}}>{listHeaderLabel}</p>
+
+          <p>List /</p> <p style={{"color": "#4286f4"}}> {listHeaderLabel} </p>
+
         </header>
         <div className="results_list_table">
           <table>
@@ -30,7 +32,9 @@ const Results = observer(props => {
                 <th style={{"width":"75%"}}>Name</th>
                 <th>Party</th>
               </tr>
+
               {resultsList}
+
             </tbody>
           </table>
         </div>
@@ -39,7 +43,9 @@ const Results = observer(props => {
         <header className="results_header">
           <p>Info</p>
         </header>
+
         <RepDetails rep={activeRep} />
+
       </div>
     </section>
   )
@@ -53,8 +59,8 @@ export default Results;
 const ResultRow = props => {
   return (
     <tr className="result_row" onClick={() => props.store.setActiveRep(props.name)}>
-      <td style={{"width":"75%"}}>{props.name}</td>
-      <td>{props.party}</td>
+      <td style={{"width":"75%"}}> {props.name} </td>
+      <td> {props.party} </td>
     </tr>
   )
 }
@@ -62,7 +68,7 @@ const ResultRow = props => {
 //component to render either a rep's detailed info or default values
 const RepDetails = ({ rep }) => {
   let defaultVals = { a: 'First Name', b: 'Last Name', c: 'District', d: 'Phone', e: 'Office', f: 'Website' };
-  let dataObj = rep.name
+  let detailsObj = rep.name
                   ? { a: rep.name.split(' ')[0],
                       b: rep.name.split(' ')[1],
                       c: `District ${rep.district}`,
@@ -72,19 +78,19 @@ const RepDetails = ({ rep }) => {
                   : defaultVals;
 
   //don't render a District field for senators
-  if (rep.name && !rep.district) delete dataObj.c;
+  if (rep.name && !rep.district) delete detailsObj.c;
 
   let fields = [];
   //loop through the data object and generate JSX for each field.
-  for (let key in dataObj) {
+  for (let key in detailsObj) {
     key === 'f' && rep.name
       ? fields.push(
-                     <a href={dataObj[key]} target="_blank">
-                       <div key={key} className="results_detail_field">{dataObj[key]}</div>
+                     <a href={detailsObj[key]} target="_blank">
+                       <div key={key} className="results_detail_field"> {detailsObj[key]} </div>
                      </a>
                    )
       : fields.push(
-                     <div key={key} className="results_detail_field">{dataObj[key]}</div>
+                     <div key={key} className="results_detail_field"> {detailsObj[key]} </div>
                    )
   }
   return fields;

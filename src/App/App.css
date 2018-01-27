@@ -6,7 +6,6 @@
   max-width: 800px;
   height: 550px;
   padding: 0px 12px;
-  /* overflow: auto; */
   margin: auto;
   box-sizing: border-box;
   border: 1px solid #DEDEDE;
@@ -27,7 +26,6 @@
 
 .search_filter {
   margin: 12px 0px;
-  z-index: 100;
 }
 
 .results_main {
@@ -95,12 +93,7 @@ td {
   background: #F7F7F7;
 }
 
-.results_detail {
-  /* margin-left: 6px; */
-}
-
 .results_detail_field {
-  /* width: 100%; */
   padding: 12px 6px;
   margin-top: 1px;
   margin-bottom: 12px;
