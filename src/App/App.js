@@ -11,7 +11,7 @@ const appState = observable({
   stateSelected: '',
   roleSelected: '',
   results: [],
-  activeRep: {}
+  activeRep: null
 })
 
 //add necessary methods to mutate/update app state
@@ -21,7 +21,8 @@ appState.dispatchRequest = (role, state) => {
   const requestMethods = {
     REP: state => axios.get(`/representatives/${state}`).then(resp => appState.results = resp.data.results),
     SEN: state => axios.get(`/senators/${state}`).then(resp => appState.results = resp.data.results)
-  }
+  };
+  appState.activeRep = null;
   return requestMethods[role](state);
 }
 appState.setActiveRep = name => appState.activeRep = appState.results.find(rep => rep.name === name);

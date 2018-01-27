@@ -78,9 +78,9 @@ table {
 th {
   padding: 12px 6px;
   border-radius: 2px;
-  background: #F7F7F7;
+  background: #E2E2E2;
   font-weight: 300;
-  color: #333333;
+  color: #555555;
 }
 
 td {
@@ -97,6 +97,6 @@ td {
   padding: 12px 6px;
   margin-top: 1px;
   margin-bottom: 12px;
-  background: #F7F7F7;
+  background: #F9F9F9;
   border-radius: 2px;
 }

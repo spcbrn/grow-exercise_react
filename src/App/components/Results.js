@@ -68,7 +68,7 @@ const ResultRow = props => {
 //component to render either a rep's detailed info or default values
 const RepDetails = ({ rep }) => {
   let defaultVals = { a: 'First Name', b: 'Last Name', c: 'District', d: 'Phone', e: 'Office', f: 'Website' };
-  let detailsObj = rep.name
+  let detailsObj = rep
                   ? { a: rep.name.split(' ')[0],
                       b: rep.name.split(' ')[1],
                       c: `District ${rep.district}`,
@@ -78,19 +78,24 @@ const RepDetails = ({ rep }) => {
                   : defaultVals;
 
   //don't render a District field for senators
-  if (rep.name && !rep.district) delete detailsObj.c;
+  if (rep && !rep.district) delete detailsObj.c;
 
   let fields = [];
+  let defaultStyle = !rep ? { "color": "#999999" } : {};
   //loop through the data object and generate JSX for each field.
   for (let key in detailsObj) {
-    key === 'f' && rep.name
+    rep && key === 'f'
       ? fields.push(
                      <a href={detailsObj[key]} target="_blank">
-                       <div key={key} className="results_detail_field"> {detailsObj[key]} </div>
+                       <div key={key}
+                            className="results_detail_field"
+                            style={defaultStyle}> {detailsObj[key]} </div>
                      </a>
                    )
       : fields.push(
-                     <div key={key} className="results_detail_field"> {detailsObj[key]} </div>
+                     <div key={key}
+                          className="results_detail_field"
+                          style={defaultStyle}> {detailsObj[key]} </div>
                    )
   }
   return fields;
